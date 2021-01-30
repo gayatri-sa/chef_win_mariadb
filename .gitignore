@@ -5,6 +5,8 @@
 \#*#
 .*.sw[a-z]
 *.un~
+*.msi
+*.exe
 
 # Bundler
 Gemfile.lock
