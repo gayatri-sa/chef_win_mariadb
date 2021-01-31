@@ -7,8 +7,8 @@
 # Get the MySQL user details from the DataBag
 mysqluser = Chef::EncryptedDataBagItem.load('topsecret', 'mysql')
 
-directory "Create folder C:\tmp" do
-  path "C:\tmp"
+directory "Create folder C:/tmp" do
+  path "C:/tmp"
   recursive true
 end
 
@@ -48,7 +48,7 @@ windows_package 'Install MariaDB' do
   action :install
   installer_type :msi
   source 'C:\tmp\mariadb-10.5.8-winx64.msi'
-  options "PORT=3306 ALLOWREMOTEROOTACCESS=true PASSWORD=#{mysqluser[password]} SERVICENAME=MySQL"
+  options "PORT=3306 ALLOWREMOTEROOTACCESS=true PASSWORD=#{mysqluser['password']} SERVICENAME=MySQL"
 end
 
 windows_path 'Add the MySQL command to the path' do
